@@ -1,6 +1,7 @@
 # MPC_CharacterLimitedTextField
 Limits text input to a defined output width, accounting for emoji and special input languages such as Japanese or Chinese.
 
+This repository is an Objective-C Xcode project that contains the class files and that will allow you to demo the input field. Give it a try!
 
 The MPC_CharacterLimitedTextField is UITextField subclass that allows the user to enter characters only up to a specified output width. This class is useful if you want to input names, short descriptions, and so on that will be displayed in a label of limited width. For example, you may want to input a string in one view that will be displayed in a UITableViewCell on one line with limited horizontal space. This class allows you to specify exactly how many pixels of horizontal display space you have, as well as the expected output fond and size, and this textfield will do the rest. 
 
