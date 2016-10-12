@@ -6,17 +6,17 @@
 //  Copyright © 2016 Michael Critchley. All rights reserved.
 //
 
-#import "MPC_MaxCharacterDelimitedTextField.h"
+#import "MPC_MaxCharacterLimitedTextField.h"
 //#import "CMConstants.h"
 
-@interface MPC_MaxCharacterDelimitedTextField () <UITextFieldDelegate, UITextInputDelegate>
+@interface MPC_MaxCharacterLimitedTextField () <UITextFieldDelegate, UITextInputDelegate>
 
 @property (strong, nonatomic) UILabel *sizingField;
 @property (nonatomic, assign) CGFloat sizingFieldTargetWidth;
 
 @end
 
-@implementation MPC_MaxCharacterDelimitedTextField
+@implementation MPC_MaxCharacterLimitedTextField
 
 - (id) initWithCoder:(NSCoder *)aDecoder
 {
@@ -49,7 +49,7 @@
 - (void)_informDelegateOfTextChange
 {
     //Inform the delegate that there has been a change in the ActivtyName text
-    [self.MPC_TextFieldDelegate userDidEnterText:self.text MPC_textField:self];
+    [self.MPC_TextFieldDelegate MPC_UserDidEnterText:self.text MPC_textField:self];
 }
 
 
@@ -96,12 +96,17 @@
         // 6. Inform delegate
         [self _informDelegateOfTextChange];
         
+        //7. Inform delegate text limit exceeded
+        [self.MPC_TextFieldDelegate MPC_InputDidExceedTextField:self];
         return NO;
     }
     
     if (self.callbackIsImmediate) {
-         [self.MPC_TextFieldDelegate userDidEnterText:fullString MPC_textField:self];
+        [self.MPC_TextFieldDelegate MPC_UserDidEnterText:fullString MPC_textField:self];
     }
+    
+    //Inform delegate that text is currently in bounds
+    [self.MPC_TextFieldDelegate MPC_InputDoesNotExceedTextField:self];
    
     return YES;
 }

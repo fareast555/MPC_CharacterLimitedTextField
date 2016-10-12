@@ -6,7 +6,7 @@ The MPC_CharacterLimitedTextField is UITextField subclass that will only allow t
 
 This text field is not based on character count, which breaks down with emoji, other languages -- not all languages are of the same width -- and languages such as Japanese that require a two-step input process. This class is based solely on length, so it will allow any character type up to an output length specifid by the user.
 
-You also have the option of setting the <span style=“color:green” callbackIsImmediate> </span> flag to YES to recieve callbacks for each character as typed. If set to NO, the class will return the final string to the delegate.
+You also have the option of setting the callbackIsImmediate flag to YES to recieve callbacks for each character as typed. If set to NO, the class will return the final string to the delegate.
 
 This class is designed to be subclassed in Storyboard, but can also be used with an existing Storyboard textfield by casting onto the Textfield.
 

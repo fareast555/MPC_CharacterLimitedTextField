@@ -23,24 +23,23 @@
 
 #import <UIKit/UIKit.h>
 
-@class MPC_MaxCharacterDelimitedTextField;
+@class MPC_MaxCharacterLimitedTextField;
 
-@protocol MPC_MaxCharacterDelimitedTextFieldDelegate <UITextFieldDelegate>
-
-// ** Tells the parent class (with the IBOutlet) that editing will begin
+@protocol MPC_MaxCharacterLimitedTextFieldDelegate <UITextFieldDelegate>
 @required
-- (void) MPC_TextFieldWillBeginEditing:(MPC_MaxCharacterDelimitedTextField *)textField;
+- (void) MPC_UserDidEnterText:(NSString *)updatedText MPC_textField:(MPC_MaxCharacterLimitedTextField *)MPC_textField;
 
-//With each character tapped, returns the entire textfield.text value
-- (void) userDidEnterText:(NSString *)updatedText MPC_textField:(UITextField *)MPC_textField;
-
+@optional
+- (void) MPC_TextFieldWillBeginEditing:(MPC_MaxCharacterLimitedTextField *)MPC_textField;
+- (void) MPC_InputDoesNotExceedTextField:(MPC_MaxCharacterLimitedTextField *)MPC_textField;
+- (void) MPC_InputDidExceedTextField:(MPC_MaxCharacterLimitedTextField *)MPC_textField;
 @end
 
 
-@interface MPC_MaxCharacterDelimitedTextField : UITextField
+@interface MPC_MaxCharacterLimitedTextField : UITextField
 
 @property (assign, nonatomic) BOOL callbackIsImmediate;
-@property (weak, nonatomic) id<MPC_MaxCharacterDelimitedTextFieldDelegate>MPC_TextFieldDelegate;
+@property (weak, nonatomic) id<MPC_MaxCharacterLimitedTextFieldDelegate>MPC_TextFieldDelegate;
 
 - (void) displayTextOnLoad:(NSString *)displayText;
 - (void) outPutTextFitToLabelWithWidth:(CGFloat)width fontWithSize:(UIFont *)font;
