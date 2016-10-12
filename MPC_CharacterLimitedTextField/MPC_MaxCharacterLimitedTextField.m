@@ -61,12 +61,6 @@
     return YES;
 }
 
-- (void)textDidChange:(id<UITextInput>)textInput
-{
-    NSLog(@"%s called", __FUNCTION__);
-    [self _informDelegateOfTextChange];
-}
-
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
     [self _informDelegateOfTextChange];
@@ -77,6 +71,8 @@
     //1. Check for 2-stage text entry (eg. Japanese / Chinese).
     // This text change will be handled in the textInputDelegate below
     if (textField.markedTextRange != nil) {
+        
+        //Set the delegate to received callbacks for 2-stage text entry
         [self setInputDelegate:self];
         return YES;
     }
@@ -117,6 +113,17 @@
     //1. DONE or NEXT button on keyboard has been pressed. Resign 1st responder
     [textField resignFirstResponder];
     
+    NSString *finalText = textField.text;
+    
+    if (![self _labelDoesEncloseString:finalText]) {
+        
+        // 4. If not, shave off as many characters as is required to fit
+        finalText = [self _decomposeString:finalText];
+        
+        // 5. Set the label manually
+        self.text = finalText;
+    }
+    
     //2. Inform delegate
     [self _informDelegateOfTextChange];
     
@@ -154,14 +161,23 @@
                                          NSRange substringRange,
                                          NSRange enclosingRange,
                                          BOOL *stop)
-     
      {
         //3. Remove the final character length (to account for emoji/surrogate 16-bit chars etc)
         finalString = [string substringToIndex:[string length] - substring.length];
          
          //4. If the decomposed string now fits the label, stop the emumeration.
-         if ([self _labelDoesEncloseString:finalString])
-            *stop = YES;
+         if ([self _labelDoesEncloseString:finalString]) {
+              *stop = YES;
+        
+         } else {
+            
+             //Call recursively until we get a string that fits
+             finalString = [self _decomposeString:finalString];
+             
+             if ([self _labelDoesEncloseString:finalString]) {
+                 *stop = YES;
+             }
+         }
      }];
     
     //5. Return the truncated string
@@ -169,10 +185,8 @@
 }
 
 
-#pragma mark - UITextInputDelegate
-- (void)textWillChange:(id<UITextInput>)textInput { } //Required methods here to silence warnings
-
-- (void)selectionWillChange:(id<UITextInput>)textInput { }
+#pragma mark - UITextInputDelegate 
+//These methods handle input of 2-stage input languages such as Japanese or Chinese
 
 - (void)selectionDidChange:(id<UITextInput>)textInput //Called when 2-stage temporary marked text is confirmed
 {
@@ -184,5 +198,14 @@
     //2. Let the delegate know that we have updated the textField
     [self _informDelegateOfTextChange];
 }
+
+//Required methods here to silence warnings
+- (void)textWillChange:(id<UITextInput>)textInput { }
+
+- (void)selectionWillChange:(id<UITextInput>)textInput { }
+
+- (void)textDidChange:(id<UITextInput>)textInput { }
+
+
 
 @end

@@ -24,12 +24,18 @@
     [super viewDidLoad];
     [self _configureLabels];
     
+    ///--------------------------------------
+    #pragma - Set the expected width of the view where you will later display the input
+    ///--------------------------------------
+    CGFloat maximumLabelWidth = 100;
+    
     //Set the MPC_MaxCharacterDelimitedTextFieldDelegate if you wish to receive callbacks
     self.inputTextField.MPC_TextFieldDelegate = self;
     
     //Instruct the field the maximum size of label you will need.
-    [self.inputTextField outPutTextFitToLabelWithWidth:50
-                                          fontWithSize:[UIFont systemFontOfSize:13.5
+    //**CHANGE THIS FONT to the font you will use in the view that will display this input
+    [self.inputTextField outPutTextFitToLabelWithWidth:maximumLabelWidth
+                                          fontWithSize:[UIFont systemFontOfSize:14
                                                                          weight:UIFontWeightMedium]];
     
     // Gets text with each character entered.
@@ -82,7 +88,7 @@
 }
 
 
-#pragma mark - UIAnimation of warning label
+#pragma mark - UIAnimation of warning label (Bling)
 - (void)_animateNewText
 {
     //Set the warning label to 0.4 of its current size
