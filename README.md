@@ -3,11 +3,11 @@ Limits text input to a defined output width, accounting for emoji and special in
 
 This repository is an Objective-C Xcode project that contains the class files and that will allow you to demo the input field. Give it a try!
 
-The MPC_CharacterLimitedTextField is UITextField subclass that allows the user to enter characters only up to a specified output width. This class is useful if you want to input names, short descriptions, and so on that will be displayed in a label of limited width. For example, you may want to input a string in one view that will be displayed in a UITableViewCell on one line with limited horizontal space. This class allows you to specify exactly how many pixels of horizontal display space you have, as well as the expected output fond and size, and this textfield will do the rest. 
+The MPC_CharacterLimitedTextField is UITextField subclass that allows the user to enter characters only up to a specified output width. This class is useful if you want to input names, short descriptions, and so on that will be displayed in a label of limited width. For example, you may want to input a string in one view that will be displayed in a UITableViewCell on one line with limited horizontal space. This class allows you to specify exactly how many points of horizontal width your display label will have as well as the expected output font and size, and this textfield will do the rest. 
 
-This text field is not based on character count, which breaks down with emoji, other languages -- not all languages are of the same width -- and languages such as Japanese that require a two-step input process. This class is based solely on length, so it will allow any character type up to an output length specifid by the user.
+This text field is not based on character count, which breaks down with emoji, other languages -- not all languages are of the same width -- and languages such as Japanese that require a two-step input process. This class is based solely on length, so it will allow any character type up to an output length you specify in your view controller.
 
-Using the callbackIsImmediate flag, you can receive delegate callback for each character as typed. If set to NO, the class will return the final string to the delegate.
+Using the callbackIsImmediate flag, you can receive a delegate callback for each character as typed. If set to NO, the class will return the final string to the delegate when the user clicks the keyboard return key.
 
 
 
@@ -23,7 +23,7 @@ Using the callbackIsImmediate flag, you can receive delegate callback for each c
 4. Create an IBOutlet from storyboard to your view controller.
 
 5. To get delegate callbacks, add the delegate protocol. For example: 
-@interface ViewController ()<MPC_MaxCharacterDelimitedTextFieldDelegate>
+@interface ViewController ()\<MPC_MaxCharacterDelimitedTextFieldDelegate>
 
 Then set the delegate in viewDidLoad:
 self.inputTextField.MPC_TextFieldDelegate = self;
