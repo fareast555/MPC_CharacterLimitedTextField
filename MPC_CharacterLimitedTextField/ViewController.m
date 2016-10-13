@@ -43,7 +43,7 @@
     
     // Gets text with each character entered.
     // Comment this out to only get a callback when user hits "Return"
-   // self.inputTextField.callbackIsImmediate = YES;
+    self.inputTextField.callbackIsImmediate = YES;
 
     //Configure Demo App UI
     [self _configureLabels];
