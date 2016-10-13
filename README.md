@@ -30,7 +30,9 @@ Using the callbackIsImmediate flag, you can receive a delegate callback for each
 
 7. In viewDidLoad, tell the class the maximum width your output label will be, and give the font and size you will be using. For example, to specify an output label width of 180 points across, at a system font size of 14, medium weight: 
 
-    [self.inputTextField outPutTextFitToLabelWithWidth:180 fontWithSize:[UIFont systemFontOfSize:14weight:UIFontWeightMedium]];
+    [self.inputTextField outPutTextFitToLabelWithWidth:180 
+    fontWithSize:[UIFont systemFontOfSize14
+    weight:UIFontWeightMedium]];
 
 8. Use self.inputTextField.callbackIsImmediate = YES; to get a callback with each character tapped. NO to only get a callback when the user presses "return" on the keyboard (or resigns first responder);
 
@@ -54,12 +56,13 @@ The optional methods are there to advise you of main events. MPC_InputDidExceedT
 <h3>To cast on an existing UITextField Storyboard IBOutlet:</h3>
 
 1. Add a property of this class. 
-@property (weak, nonatomic) IBOutlet UITextField *textField; //Your existing text field
-@property (strong, nonatomic) MPC_MaxCharacterDelimitedTextField *MPC_textField;
+    @property (weak, nonatomic) IBOutlet UITextField *textField; //Your existing text field
+    @property (strong, nonatomic) MPC_MaxCharacterDelimitedTextField *MPC_textField;
 
 2. In Storyboard > Identity Inspector > Custom Class, select the MPC_CharacterLimitedTextField class from the pull down.
 
-To cast this class on an existing UITextField example, if you create a MPC_CharacterLimitedTextField property called MPC_textField, you could use it to cast your existin: self.MPC_textField = (MPC_CharacterLimitedTextField *)self.textField;
+To cast this class on an existing UITextField example, if you create a MPC_CharacterLimitedTextField property called MPC_textField (for example), you could use it to cast your existing UITextField: 
+    self.MPC_textField = (MPC_CharacterLimitedTextField *)self.textField;
 
 
 Hope you find this class useful!
