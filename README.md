@@ -7,7 +7,7 @@ The MPC_CharacterLimitedTextField is UITextField subclass that allows the user t
 
 This text field is not based on character count, which breaks down with emoji, other languages -- not all languages are of the same width -- and languages such as Japanese that require a two-step input process. This class is based solely on length, so it will allow any character type up to an output length you specify in your view controller.
 
-Using the <span data-highlight-class="no">callbackIsImmediate</span> flag, you can receive a delegate callback for each character as typed. If set to NO, the class will return the final string to the delegate when the user clicks the keyboard return key.
+Using the callbackIsImmediate flag, you can receive a delegate callback for each character as typed. If set to NO, the class will return the final string to the delegate when the user clicks the keyboard return key.
 
 
 
@@ -22,16 +22,15 @@ Using the <span data-highlight-class="no">callbackIsImmediate</span> flag, you c
 
 4. Create an IBOutlet from storyboard to your view controller.
 
-5. To get delegate callbacks, add the delegate protocol. For example: @interface ViewController ()\<MPC_MaxCharacterDelimitedTextFieldDelegate>
+5. To get delegate callbacks, add the delegate protocol. For example: 
+    @interface ViewController ()\<MPC_MaxCharacterDelimitedTextFieldDelegate>
 
 6. Set the delegate in viewDidLoad:
-self.inputTextField.MPC_TextFieldDelegate = self;
+    self.inputTextField.MPC_TextFieldDelegate = self;
 
-7. In viewDidLoad, tell the class the maximum width your output label will be, and give the font and size you will be using. For example, to specify an output label width of 180 points across, at a system font size of 14, medium weight:
+7. In viewDidLoad, tell the class the maximum width your output label will be, and give the font and size you will be using. For example, to specify an output label width of 180 points across, at a system font size of 14, medium weight: 
 
-[self.inputTextField outPutTextFitToLabelWithWidth:180
-fontWithSize:[UIFont systemFontOfSize:14
-weight:UIFontWeightMedium]];
+    [self.inputTextField outPutTextFitToLabelWithWidth:180 fontWithSize:[UIFont systemFontOfSize:14weight:UIFontWeightMedium]];
 
 8. Use self.inputTextField.callbackIsImmediate = YES; to get a callback with each character tapped. NO to only get a callback when the user presses "return" on the keyboard (or resigns first responder);
 
