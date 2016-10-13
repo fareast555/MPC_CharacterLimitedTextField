@@ -15,6 +15,10 @@
 @property (weak, nonatomic) IBOutlet MPC_MaxCharacterLimitedTextField *inputTextField;
 @property (weak, nonatomic) IBOutlet UILabel *outputLabel;
 @property (weak, nonatomic) IBOutlet UILabel *warningLabel;
+@property (weak, nonatomic) IBOutlet UILabel *messageToUser;
+
+@property (nonatomic, assign) CGFloat maximumLabelWidth;
+
 
 @end
 
@@ -22,25 +26,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self _configureLabels];
     
     ///--------------------------------------
     #pragma - Set the expected width of the view where you will later display the input
     ///--------------------------------------
-    CGFloat maximumLabelWidth = 100;
+    self.maximumLabelWidth = 100;
     
     //Set the MPC_MaxCharacterDelimitedTextFieldDelegate if you wish to receive callbacks
     self.inputTextField.MPC_TextFieldDelegate = self;
     
     //Instruct the field the maximum size of label you will need.
     //**CHANGE THIS FONT to the font you will use in the view that will display this input
-    [self.inputTextField outPutTextFitToLabelWithWidth:maximumLabelWidth
+    [self.inputTextField outPutTextFitToLabelWithWidth:self.maximumLabelWidth
                                           fontWithSize:[UIFont systemFontOfSize:14
                                                                          weight:UIFontWeightMedium]];
     
     // Gets text with each character entered.
     // Comment this out to only get a callback when user hits "Return"
     self.inputTextField.callbackIsImmediate = YES;
+
+    //Configure Demo App UI
+    [self _configureLabels];
 
 }
 
@@ -52,6 +58,7 @@
     self.outputLabel.text = @" "; //A space prevents autolayout from collapsing the label
     self.warningLabel.alpha = 0;
     self.warningLabel.text = @"Text field input maximum reached";
+    self.messageToUser.text = [NSString stringWithFormat:@"Message being limited to %0.0f points. Go to ViewController.m viewDidLoad to change this width", self.maximumLabelWidth];
 }
 
 #pragma mark - MPC_MaxCharacterDelimitedTextFieldDelegate Methods

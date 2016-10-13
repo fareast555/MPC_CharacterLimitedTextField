@@ -170,7 +170,7 @@
               *stop = YES;
         
          } else {
-            
+             
              //Call recursively until we get a string that fits
              finalString = [self _decomposeString:finalString];
              

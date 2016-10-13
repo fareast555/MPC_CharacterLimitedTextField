@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -40,19 +41,30 @@
                                 <color key="textColor" red="1" green="0.048975146543268844" blue="0.15934386808520307" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5B-vu-otH" userLabel="messageToUser">
+                                <frame key="frameInset" minX="166" minY="586" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="4K7-ZR-o1h" firstAttribute="top" secondItem="jeN-hQ-Dr7" secondAttribute="bottom" constant="50" id="8qK-20-ALw"/>
+                            <constraint firstItem="X5B-vu-otH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" priority="900" id="Fhl-52-5kb"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="X5B-vu-otH" secondAttribute="bottom" constant="70" id="H4G-zX-1fe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="X5B-vu-otH" secondAttribute="trailing" constant="15" id="HiJ-sC-d2N"/>
                             <constraint firstItem="RB3-0a-K3s" firstAttribute="top" secondItem="4K7-ZR-o1h" secondAttribute="bottom" constant="20" id="IGq-wC-sqd"/>
                             <constraint firstItem="RB3-0a-K3s" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Jlb-XO-eXU"/>
                             <constraint firstItem="jeN-hQ-Dr7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="g2J-3o-CfL"/>
+                            <constraint firstItem="X5B-vu-otH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="15" id="hti-NM-onr"/>
                             <constraint firstItem="jeN-hQ-Dr7" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.45" id="uA4-oc-Cx9"/>
                             <constraint firstItem="4K7-ZR-o1h" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yr2-JL-yFs"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="inputTextField" destination="jeN-hQ-Dr7" id="MDQ-jh-1ec"/>
+                        <outlet property="messageToUser" destination="X5B-vu-otH" id="ChC-Zg-ksd"/>
                         <outlet property="outputLabel" destination="4K7-ZR-o1h" id="dWK-2c-gjf"/>
                         <outlet property="warningLabel" destination="RB3-0a-K3s" id="Nll-wT-9OM"/>
                     </connections>
