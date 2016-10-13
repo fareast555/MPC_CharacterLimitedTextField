@@ -43,7 +43,7 @@
     
     // Gets text with each character entered.
     // Comment this out to only get a callback when user hits "Return"
-    self.inputTextField.callbackIsImmediate = YES;
+   // self.inputTextField.callbackIsImmediate = YES;
 
     //Configure Demo App UI
     [self _configureLabels];
@@ -61,6 +61,12 @@
     self.messageToUser.text = [NSString stringWithFormat:@"Message being limited to %0.0f points. Go to ViewController.m viewDidLoad to change this width", self.maximumLabelWidth];
 }
 
+- (IBAction)screenWasTapped:(id)sender {
+    
+    [self.inputTextField resignFirstResponder];
+}
+
+
 #pragma mark - MPC_MaxCharacterDelimitedTextFieldDelegate Methods
 
 //This method is triggered when the text field becomes first responder
@@ -72,6 +78,7 @@
 //This method returns the entire textfield.text value and a reference to the text field.
 - (void) MPC_UserDidEnterText:(NSString *)updatedText MPC_textField:(MPC_MaxCharacterLimitedTextField *)MPC_textField
 {
+    NSLog(@"%s called", __FUNCTION__);
     if ([updatedText isEqualToString:@""]) {
         updatedText = @" "; //Maintains height of textfield in view
     }
@@ -127,6 +134,7 @@
         }completion:^(BOOL finished2){ }];
     }];
 }
+
 
 
 

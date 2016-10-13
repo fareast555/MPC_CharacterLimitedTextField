@@ -60,7 +60,7 @@ The optional methods are there to advise you of main events. MPC_InputDidExceedT
 
 2. In Storyboard > Identity Inspector > Custom Class, select the MPC_CharacterLimitedTextField class from the pull down.
 
-To cast this class on an existing UITextField example, if you create a MPC_CharacterLimitedTextField property called MPC_textField (for example), you could use it to cast your existing UITextField: 
+To cast this class on an existing UITextField, if you create a MPC_CharacterLimitedTextField property called MPC_textField (for example), you could use it to cast your existing UITextField: 
     self.MPC_textField = (MPC_CharacterLimitedTextField *)self.textField;
 
 
