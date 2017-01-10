@@ -1,5 +1,5 @@
 //
-//  MPC_MaxCharacterDelimitedTextField.h
+//  MPC_MaxCharacterLimitedTextField.h
 //  Commigo
 //
 //  Created by Michael Critchley on 5/22/16.

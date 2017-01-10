@@ -1,5 +1,5 @@
 //
-//  MPC_MaxCharacterDelimitedTextField.m
+//  MPC_MaxCharacterLimitedTextField.m
 //  Commigo
 //
 //  Created by Michael Critchley on 5/22/16.
@@ -57,7 +57,9 @@
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
-    [self.MPC_TextFieldDelegate MPC_TextFieldWillBeginEditing:self];
+    if ([self.MPC_TextFieldDelegate respondsToSelector:@selector(MPC_TextFieldWillBeginEditing:)]) {
+        [self.MPC_TextFieldDelegate MPC_TextFieldWillBeginEditing:self];
+    }
     return YES;
 }
 
@@ -93,7 +95,9 @@
         [self _informDelegateOfTextChange];
         
         //7. Inform delegate text limit exceeded
-        [self.MPC_TextFieldDelegate MPC_InputDidExceedTextField:self];
+        if ([self.MPC_TextFieldDelegate respondsToSelector:@selector(MPC_InputDidExceedTextField:)]) {
+            [self.MPC_TextFieldDelegate MPC_InputDidExceedTextField:self];
+        }
         return NO;
     }
     
@@ -102,7 +106,9 @@
     }
     
     //Inform delegate that text is currently in bounds
-    [self.MPC_TextFieldDelegate MPC_InputDoesNotExceedTextField:self];
+    if ([self.MPC_TextFieldDelegate respondsToSelector:@selector(MPC_InputDoesNotExceedTextField:)]) {
+        [self.MPC_TextFieldDelegate MPC_InputDoesNotExceedTextField:self];
+    }
    
     return YES;
 }
