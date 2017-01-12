@@ -1,19 +1,13 @@
-#
-# Be sure to run `pod lib lint CharacterLimitedUITextField.podspec' to ensure this is a
-# valid spec before submitting.
-#
-# Any lines starting with a # are optional, but their use is encouraged
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
-#
+
 
 Pod::Spec.new do |spec|
-spec.name             = 'CharacterLimitedUITextField'
+spec.name             = 'MPC_CharacterLimitedTextField'
 spec.version          = '0.1.0'
 spec.summary          = 'A UITextField subclass that limits text input to a defined output width.'
 spec.description      = 'This CocoaPod allows you to limit user-inputted text in a UITextField to a specific width. This width will likely be the width of any tableViewCell label you will be printing to. This UITextField subclass accounts for different font widths amd can handle emoji and 2-step input languages such as Japanese or Chinese.'
 
 spec.homepage         = 'https://github.com/fareast555/MPC_CharacterLimitedTextField'
-spec.license          = { :type => 'MIT', :file => 'LICENSE' }
+spec.license          = { :type => 'BSD', :file => 'license.txt' }
 spec.author           = { 'Mike Critchley' => 'critchley55@yahoo.co.jp' }
 spec.source           = { :git => 'https://github.com/fareast555/MPC_CharacterLimitedTextField.git', :tag => spec.version.to_s }
 
