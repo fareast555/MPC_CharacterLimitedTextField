@@ -10,32 +10,45 @@ This text field is not based on character count, which breaks down with emoji, o
 Using the callbackIsImmediate flag, you can receive a delegate callback for each character as typed. If set to NO, the class will return the final string to the delegate when the user clicks the keyboard return key.
 
 
+## Requirements
 
+* iOS 9.0+
+* ARC
+
+## Installation
+
+Download this repo and find the MPC_CharacterLimitedTextField{.h/.m} files or
+
+### [CocoaPods](https://cocoapods.org/)
+
+````ruby
+# For latest release, add this to your podfile
+pod 'MPC_CharacterLimitedTextField', '~> 1.1.0'
+````
 
 <h3>To use as a subclass in Storyboard (read below for alternatives):</h3>
 
-1. Locate and copy the MPC_CharacterLimitedTextField.h and .m files. in this repo (or from the downloaded / cloned repo)
 
-2. Import the .h file into the class that will have the IBOutlet for the target UITextField.
+1. Import the .h file into the class that will have the IBOutlet for the target UITextField.
 
-3. In Storyboard > Identity Inspector > Custom Class, select the MPC_CharacterLimitedTextField class from the pull down. 
+2. In Storyboard > Identity Inspector > Custom Class, select the MPC_CharacterLimitedTextField class from the pull down. 
 
-4. Create an IBOutlet from storyboard to your view controller.
+3. Create an IBOutlet from storyboard to your view controller.
 
-5. To get delegate callbacks, add the delegate protocol. For example: 
+4. To get delegate callbacks, add the delegate protocol. For example: 
     @interface ViewController ()\<MPC_CharacterDelimitedTextFieldDelegate>
 
-6. Set the delegate in viewDidLoad:
+5. Set the delegate in viewDidLoad:
     self.inputTextField.MPC_TextFieldDelegate = self;
 
-7. In viewDidLoad, tell the class the maximum width your output label will be, and give the font and size you will be using. For example, to specify an output label width of 180 points across, at a system font size of 14, medium weight: 
+6. In viewDidLoad, tell the class the maximum width your output label will be, and give the font and size you will be using. For example, to specify an output label width of 180 points across, at a system font size of 14, medium weight: 
 
     [self.inputTextField outPutTextFitToLabelWithWidth:180 
     fontWithSize:[UIFont systemFontOfSize14  weight:UIFontWeightMedium]];
 
-8. Use self.inputTextField.callbackIsImmediate = YES; to get a callback with each character tapped. NO to only get a callback when the user presses "return" on the keyboard (or resigns first responder);
+7. Use self.inputTextField.callbackIsImmediate = YES; to get a callback with each character tapped. NO to only get a callback when the user presses "return" on the keyboard (or resigns first responder);
 
-6. Implemement the delegate methods (see below)
+8. Implemement the delegate methods (see below)
 
 
 
