@@ -23,7 +23,7 @@ Using the callbackIsImmediate flag, you can receive a delegate callback for each
 4. Create an IBOutlet from storyboard to your view controller.
 
 5. To get delegate callbacks, add the delegate protocol. For example: 
-    @interface ViewController ()\<MPC_MaxCharacterDelimitedTextFieldDelegate>
+    @interface ViewController ()\<MPC_CharacterDelimitedTextFieldDelegate>
 
 6. Set the delegate in viewDidLoad:
     self.inputTextField.MPC_TextFieldDelegate = self;
@@ -40,15 +40,15 @@ Using the callbackIsImmediate flag, you can receive a delegate callback for each
 
 
 <h3>Delegate:</h3>
-The MPC_MaxCharacterDelimitedTextFieldDelegate has four callback methods. Only one is required.
+The MPC_CharacterDelimitedTextFieldDelegate has four callback methods. Only one is required.
 
 @required
-- (void) MPC_UserDidEnterText:(NSString *)updatedText MPC_textField:(MPC_MaxCharacterLimitedTextField *)MPC_textField;
+- (void) MPC_UserDidEnterText:(NSString *)updatedText MPC_textField:(MPC_CharacterLimitedTextField *)MPC_textField;
 
 @optional
-- (void) MPC_TextFieldWillBeginEditing:(MPC_MaxCharacterLimitedTextField *)MPC_textField;
-- (void) MPC_InputDoesNotExceedTextField:(MPC_MaxCharacterLimitedTextField *)MPC_textField;
-- (void) MPC_InputDidExceedTextField:(MPC_MaxCharacterLimitedTextField *)MPC_textField;
+- (void) MPC_TextFieldWillBeginEditing:(MPC_CharacterLimitedTextField *)MPC_textField;
+- (void) MPC_InputDoesNotExceedTextField:(MPC_CharacterLimitedTextField *)MPC_textField;
+- (void) MPC_InputDidExceedTextField:(MPC_CharacterLimitedTextField *)MPC_textField;
 
 The optional methods are there to advise you of main events. MPC_InputDidExceedTextField may be useful if you have a just-in-time visual cue that you want to show when the user is trying to enter text that goes beyond the maximum length. 
 
@@ -56,7 +56,7 @@ The optional methods are there to advise you of main events. MPC_InputDidExceedT
 
 1. Add a property of this class. 
     @property (weak, nonatomic) IBOutlet UITextField *textField; //Your existing text field
-    @property (strong, nonatomic) MPC_MaxCharacterDelimitedTextField *MPC_textField;
+    @property (strong, nonatomic) MPC_CharacterDelimitedTextField *MPC_textField;
 
 2. In Storyboard > Identity Inspector > Custom Class, select the MPC_CharacterLimitedTextField class from the pull down.
 

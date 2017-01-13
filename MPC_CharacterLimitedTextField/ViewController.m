@@ -7,12 +7,12 @@
 //
 
 #import "ViewController.h"
-#import "MPC_MaxCharacterLimitedTextField.h"
+#import "MPC_CharacterLimitedTextField.h"
 
-@interface ViewController ()<MPC_MaxCharacterLimitedTextFieldDelegate>
+@interface ViewController ()<MPC_CharacterLimitedTextFieldDelegate>
 
 //Storyboard Outlets
-@property (weak, nonatomic) IBOutlet MPC_MaxCharacterLimitedTextField *inputTextField;
+@property (weak, nonatomic) IBOutlet MPC_CharacterLimitedTextField *inputTextField;
 @property (weak, nonatomic) IBOutlet UILabel *outputLabel;
 @property (weak, nonatomic) IBOutlet UILabel *warningLabel;
 @property (weak, nonatomic) IBOutlet UILabel *messageToUser;
@@ -70,24 +70,22 @@
 #pragma mark - MPC_MaxCharacterDelimitedTextFieldDelegate Methods
 
 //This method is triggered when the text field becomes first responder
-- (void) MPC_TextFieldWillBeginEditing:(MPC_MaxCharacterLimitedTextField *)MPC_textField
+- (void) MPC_TextFieldWillBeginEditing:(MPC_CharacterLimitedTextField *)MPC_textField
 {
-    
+
 }
 
 //This method returns the entire textfield.text value and a reference to the text field.
-- (void) MPC_UserDidEnterText:(NSString *)updatedText MPC_textField:(MPC_MaxCharacterLimitedTextField *)MPC_textField
+- (void) MPC_UserDidEnterText:(NSString *)updatedText MPC_textField:(MPC_CharacterLimitedTextField *)MPC_textField
 {
-    NSLog(@"%s called", __FUNCTION__);
     if ([updatedText isEqualToString:@""]) {
         updatedText = @" "; //Maintains height of textfield in view
     }
-    
     self.outputLabel.text = updatedText;
 }
 
 //This method does not mean there is room in the field. Only that the user has not tried to go over limit.
-- (void) MPC_InputDoesNotExceedTextField:(MPC_MaxCharacterLimitedTextField *)MPC_textField
+- (void) MPC_InputDoesNotExceedTextField:(MPC_CharacterLimitedTextField *)MPC_textField
 {
     [UIView animateWithDuration:0.5 animations:^{
         self.warningLabel.alpha = 0;
@@ -95,7 +93,7 @@
 }
 
 //This method is triggered when the user tries to enter text that is refused as input.
-- (void) MPC_InputDidExceedTextField:(MPC_MaxCharacterLimitedTextField *)MPC_textField
+- (void) MPC_InputDidExceedTextField:(MPC_CharacterLimitedTextField *)MPC_textField
 {
     if (self.warningLabel.alpha == 0) [self _animateNewText];
     else [self _reanimateText];

@@ -15,7 +15,7 @@
 		273020F11DABF7F9007158F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 273020EF1DABF7F9007158F8 /* LaunchScreen.storyboard */; };
 		273020FC1DABF7F9007158F8 /* MPC_CharacterLimitedTextFieldTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 273020FB1DABF7F9007158F8 /* MPC_CharacterLimitedTextFieldTests.m */; };
 		273021071DABF7F9007158F8 /* MPC_CharacterLimitedTextFieldUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 273021061DABF7F9007158F8 /* MPC_CharacterLimitedTextFieldUITests.m */; };
-		273021161DABF853007158F8 /* MPC_MaxCharacterLimitedTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 273021151DABF853007158F8 /* MPC_MaxCharacterLimitedTextField.m */; };
+		273021161DABF853007158F8 /* MPC_CharacterLimitedTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 273021151DABF853007158F8 /* MPC_CharacterLimitedTextField.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,8 +52,8 @@
 		273021021DABF7F9007158F8 /* MPC_CharacterLimitedTextFieldUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MPC_CharacterLimitedTextFieldUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		273021061DABF7F9007158F8 /* MPC_CharacterLimitedTextFieldUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPC_CharacterLimitedTextFieldUITests.m; sourceTree = "<group>"; };
 		273021081DABF7F9007158F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		273021141DABF853007158F8 /* MPC_MaxCharacterLimitedTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPC_MaxCharacterLimitedTextField.h; sourceTree = "<group>"; };
-		273021151DABF853007158F8 /* MPC_MaxCharacterLimitedTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPC_MaxCharacterLimitedTextField.m; sourceTree = "<group>"; };
+		273021141DABF853007158F8 /* MPC_CharacterLimitedTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPC_CharacterLimitedTextField.h; sourceTree = "<group>"; };
+		273021151DABF853007158F8 /* MPC_CharacterLimitedTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPC_CharacterLimitedTextField.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,8 +108,8 @@
 				273020E51DABF7F9007158F8 /* AppDelegate.m */,
 				273020E71DABF7F9007158F8 /* ViewController.h */,
 				273020E81DABF7F9007158F8 /* ViewController.m */,
-				273021141DABF853007158F8 /* MPC_MaxCharacterLimitedTextField.h */,
-				273021151DABF853007158F8 /* MPC_MaxCharacterLimitedTextField.m */,
+				273021141DABF853007158F8 /* MPC_CharacterLimitedTextField.h */,
+				273021151DABF853007158F8 /* MPC_CharacterLimitedTextField.m */,
 				273020EA1DABF7F9007158F8 /* Main.storyboard */,
 				273020ED1DABF7F9007158F8 /* Assets.xcassets */,
 				273020EF1DABF7F9007158F8 /* LaunchScreen.storyboard */,
@@ -284,7 +284,7 @@
 				273020E91DABF7F9007158F8 /* ViewController.m in Sources */,
 				273020E61DABF7F9007158F8 /* AppDelegate.m in Sources */,
 				273020E31DABF7F9007158F8 /* main.m in Sources */,
-				273021161DABF853007158F8 /* MPC_MaxCharacterLimitedTextField.m in Sources */,
+				273021161DABF853007158F8 /* MPC_CharacterLimitedTextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
