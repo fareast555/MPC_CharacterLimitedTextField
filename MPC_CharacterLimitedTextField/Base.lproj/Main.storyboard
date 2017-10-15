@@ -1,10 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -32,7 +33,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4K7-ZR-o1h" userLabel="displayLabel1">
-                                <rect key="frame" x="62.5" y="215" width="250" height="0.0"/>
+                                <rect key="frame" x="62.5" y="205" width="250" height="0.0"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="MJ4-dw-Nz1"/>
                                 </constraints>
@@ -56,7 +57,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="4K7-ZR-o1h" firstAttribute="top" secondItem="jeN-hQ-Dr7" secondAttribute="bottom" constant="50" id="8qK-20-ALw"/>
+                            <constraint firstItem="4K7-ZR-o1h" firstAttribute="top" secondItem="jeN-hQ-Dr7" secondAttribute="bottom" constant="40" id="8qK-20-ALw"/>
                             <constraint firstItem="X5B-vu-otH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" priority="900" id="Fhl-52-5kb"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="X5B-vu-otH" secondAttribute="bottom" constant="70" id="H4G-zX-1fe"/>
                             <constraint firstAttribute="trailingMargin" secondItem="X5B-vu-otH" secondAttribute="trailing" constant="15" id="HiJ-sC-d2N"/>
