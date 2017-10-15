@@ -60,14 +60,14 @@ pod 'MPC_CharacterLimitedTextField', '~> 1.1.0'
 
 <h3>Delegate:</h3>
 The MPC_CharacterDelimitedTextFieldDelegate has four callback methods. Only one is required.
+
  ```objectivec
    @required
-- (void) MPC_UserDidEnterText:(NSString *)updatedText MPC_textField:(MPC_CharacterLimitedTextField *)MPC_textField;
-
-@optional
-- (void) MPC_TextFieldWillBeginEditing:(MPC_CharacterLimitedTextField *)MPC_textField;
-- (void) MPC_InputDoesNotExceedTextField:(MPC_CharacterLimitedTextField *)MPC_textField;
-- (void) MPC_InputDidExceedTextField:(MPC_CharacterLimitedTextField *)MPC_textField;
+   - (void) MPC_UserDidEnterText:(NSString *)updatedText MPC_textField:(MPC_CharacterLimitedTextField *)MPC_textField;
+   @optional
+    - (void) MPC_TextFieldWillBeginEditing:(MPC_CharacterLimitedTextField *)MPC_textField;
+    - (void) MPC_InputDoesNotExceedTextField:(MPC_CharacterLimitedTextField *)MPC_textField;
+    - (void) MPC_InputDidExceedTextField:(MPC_CharacterLimitedTextField *)MPC_textField;
 ```
 
 
